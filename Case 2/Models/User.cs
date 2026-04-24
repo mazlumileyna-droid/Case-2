@@ -1,20 +1,22 @@
 ﻿namespace Case_2.Models
-{
+{//     Student, Teacher, Admin,
     public class User
     {
-        public int userId { get; set; }
+        public int UserId { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public string email { get; set; }
-        public string password { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public Role Role { get; set; }
 
-        public User(int userId, string name, string email, string password)
+        public User(int userId, string name, string email, string password, Role role)
         {
-            this.userId = userId;
-            this.name = name;
-            this.email = email;
-            this.password = password;
+            UserId = userId;
+            Name = name;
+            Email = email;
+            Password = password;
+            Role = role;
         }
         public User()
         {

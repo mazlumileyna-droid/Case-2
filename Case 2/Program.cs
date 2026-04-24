@@ -1,7 +1,12 @@
+using Case_2.Register.Usersreg;
+using Case_2.Services.UserServ;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<IUserRegister, UserRegister>();
+builder.Services.AddSingleton<IUserService, UserService>();
 
 var app = builder.Build();
 
