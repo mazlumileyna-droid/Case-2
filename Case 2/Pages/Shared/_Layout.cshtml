@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -23,9 +24,45 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                      @*   <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li> *@
+
+                               <!-- RIGHT -->
+                    @{
+                        var isLoggedIn = Context.Session.GetString("IsLoggedIn");
+                        var currentPage = Context.Request.Path.Value;
+                    }
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+
+                            @if (!currentPage.Contains("/UsersPage/LogInPage/LogIn"))
+                            {
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+
+                                        @if (isLoggedIn == null)
+                                        {
+                                            <a class="btn login-btn"
+                                               asp-page="/UsersPage/LogInPage/LogIn">
+                                                Log ind
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn logout-btn"
+                                               asp-page="/UsersPage/LogInPage/LogOut">
+                                                Log ud
+                                            </a>
+                                        }
+
+                                    </li>
+                                </ul>
+                            }
+                          
+
                         </li>
+                    </ul>
                     </ul>
                 </div>
             </div>
