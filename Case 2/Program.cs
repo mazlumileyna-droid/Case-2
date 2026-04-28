@@ -1,13 +1,32 @@
-using Case_2.Register.Usersreg;
 using Case_2.Services.UserServ;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSession();
-builder.Services.AddSingleton<IUserRegister, UserRegister>();
-builder.Services.AddSingleton<IUserService, UserService>();
+
+
+
+//builder.Services.AddSingleton<IUserService, MockUserService>();       //Mock
+
+
+builder.Services.AddScoped<JsonFileService>();                      //Json
+builder.Services.AddScoped<IUserService, JsonUserService>();        //Json
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/UsersPage/LogInPage/LogIn";               //Account/AccessDenied
+        options.AccessDeniedPath = "/Account/AccessDenied";              
+    });
+
+builder.Services.AddAuthorization();
+
+
+
+
 
 var app = builder.Build();
 
@@ -22,8 +41,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseRouting();
-app.UseSession();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();

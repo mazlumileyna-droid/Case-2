@@ -1,0 +1,42 @@
+﻿@page
+@model Case_2.Pages.UsersPage.LogInPage.StudentDashBoardModel
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-5 fw-bold">🎓 Student Dashboard</h2>
+
+    <div class="row justify-content-center g-4">
+
+        <!-- PROFILE CARD -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 text-center p-4">
+                <div class="mb-3 fs-1">👤</div>
+                <h4 class="fw-semibold">My Profile</h4>
+                <p class="text-muted">View and manage your personal information</p>
+                <a asp-page="/StudentPage/Profile"
+                   class="btn btn-primary w-100 mt-3">
+                    Go to Profile
+                </a>
+            </div>
+        </div>
+
+        <!-- LOKALER CARD -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 rounded-4 text-center p-4">
+                <div class="mb-3 fs-1">🏫</div>
+                <h4 class="fw-semibold">Lokaler</h4>
+                <p class="text-muted">Browse available rooms and locations</p>
+                <a asp-page="/LokalePage/GetAllLokale"
+                   class="btn btn-success w-100 mt-3">
+                    View Lokaler
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="back-container">
+        <a asp-page="/UsersPage/LogInPage/LogInForm" class="btn-back">
+            Tilbage
+        </a>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@page
+@model Case_2.Pages.UsersPage.LogInPage.LogInFormModel
+
+<div class="container mt-5" style="max-width:400px;">
+
+    <div class="text-danger mb-2">
+        @Model.Message
+    </div>
+
+    <form method="post">
+
+        <input type="hidden" asp-for="Role" />
+
+        <div class="form-group mb-3">
+            <label>Email</label>
+            <input name="email"
+                   class="form-control"
+                   required />
+        </div>
+
+        <div class="form-group mb-3">
+            <label>Password</label>
+            <input name="password"
+                   type="password"
+                   class="form-control"
+                   required />
+        </div>
+
+        <button class="btn btn-primary w-100">Log in</button>
+
+    </form>
+  
+    <div class="back-container">
+        <a asp-page="/UsersPage/LogInPage/LogIn" class="btn-back">
+            Tilbage
+        </a>
+    </div>
+
+
+</div>

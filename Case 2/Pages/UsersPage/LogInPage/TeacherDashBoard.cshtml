@@ -1,0 +1,21 @@
+﻿@page
+@model Case_2.Pages.UsersPage.LogInPage.TeacherDashBoardModel
+@{
+}
+
+
+<h2 style="text-align:center;">Teacher Dashboard</h2>
+
+<div style="display:flex; justify-content:center; gap:30px; margin-top:50px;">
+
+    <a asp-page="/UsersPage/GetAllUsers"
+       style="padding:20px 40px; background-color:#007bff; color:white; border-radius:10px;">
+        Get All Users
+    </a>
+
+    <a asp-page="/TeacherPage/GetAllTeachers"
+       style="padding:20px 40px; background-color:#28a745; color:white; border-radius:10px;">
+        Get All Teachers
+    </a>
+
+</div>

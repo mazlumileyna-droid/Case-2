@@ -13,7 +13,7 @@
             Administratorer og planlæggere med klient bruger
         </span><br />
         <a class="btn-login"
-           asp-page="/UsersPage/LogInPage/LogIn"
+           asp-page="/UsersPage/LogInPage/LogInForm"
            asp-route-role="Admin">
             Log ind
         </a>
@@ -25,7 +25,7 @@
             Er du medarbejder eller underviser?
         </span><br />
         <a class="btn-login"
-           asp-page="/UsersPage/LogInPage/LogIn"
+           asp-page="/UsersPage/LogInPage/LogInForm"
            asp-route-role="Teacher">
             Log ind
         </a>
@@ -37,14 +37,16 @@
             Er du studerende?
         </span><br />
         <a class="btn-login"
-           asp-page="/UsersPage/LogInPage/LogIn"
+           asp-page="/UsersPage/LogInPage/LogInForm"
            asp-route-role="Student">
             Log ind
         </a>
     </div>
 
+    <div class="back-container">
+        <a asp-page="/Index" class="btn-back">
+            Tilbage
+        </a>
+    </div>
+
 </div>
-
-
-
-      @*   https://htmlcolorcodes.com/ *@

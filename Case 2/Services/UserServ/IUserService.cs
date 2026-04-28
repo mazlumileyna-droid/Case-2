@@ -4,11 +4,25 @@ namespace Case_2.Services.UserServ
 {
     public interface IUserService
     {
-        User Register(User user);
-        User Login(string email, string password);
-        User GetUserById(int id);
+        //-----------------Mock + Json------------------//
+        //-----------------------------------------------//
+        //---------------------------------------------//
         List<User> GetAllUsers();
-        void DeleteUser(int id);
+        User Login(string email, string password);
         List<User> GetUsersByRole(Role role);
+
+        void CreateUser(User user);
+        void UpdateUser(User user);
+        void DeleteUser(int id);
+        //-------------------------------------------------//
+        //------------------------------------------------//
+        //-----------------DB----------------------------//
     }
 }
+
+
+
+
+
+
+   

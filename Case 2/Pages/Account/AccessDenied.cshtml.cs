@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Case_2.Pages.UsersPage.Admin
+namespace Case_2.Pages.Account
 {
-    public class EditUserModel : PageModel
+    public class AccessDeniedModel : PageModel
     {
         public void OnGet()
         {

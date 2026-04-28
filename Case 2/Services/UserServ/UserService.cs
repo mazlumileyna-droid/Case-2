@@ -1,95 +1,92 @@
-﻿using Case_2.Models;
-using Case_2.Register.Usersreg;
+﻿//using Case_2.Models;
+//using Case_2.Register.Usersreg;
 
-namespace Case_2.Services.UserServ
-{
+//namespace Case_2.Services.UserServ
+//{
+//    public class UserService : IUserService
+//    {
+//        private IUserRegister _userRegister;
 
-    public class UserService : IUserService
-    {
-        private IUserRegister _userRegister;
+//        public UserService(IUserRegister userRegister)
+//        {
+//            _userRegister = userRegister;
+//        }
 
-        // Constructor
-        public UserService(IUserRegister userRegister)
-        {
-            _userRegister = userRegister;
-        }
+//        // REGISTER
+//        public User Register(User user)
+//        {
+//            var existingUser = _userRegister.FindByEmail(user.Email);
 
-        // REGISTER USER
-        public User Register(User user)
-        {
-            // check if email already exists
-            var existingUser = _userRegister.FindByEmail(user.Email);
-            if (existingUser != null)
-            {
-                throw new Exception("User already exists");
-            }
-            ValidateEmailByRole(user);
+//            if (existingUser != null)
+//                throw new Exception("User already exists");
 
-            _userRegister.Save(user);
-            return user;
-        }
+//            ValidateEmailByRole(user);
 
-        // LOGIN USER
-        public User Login(string email, string password)
-        {
-            var user = _userRegister.FindByEmail(email);
+//            return _userRegister.Save(user);
+//        }
 
-            if (user == null || user.Password != password)
-            {
-                throw new Exception("Invalid email or password");
-            }
+//        // LOGIN
+//        public User Login(string email, string password)
+//        {
+//            var user = _userRegister.FindByEmail(email);
 
-            return user;
-        }
+//            if (user == null || user.Password != password)
+//                throw new Exception("Invalid email or password");
 
+//            return user;
+//        }
 
-        private void ValidateEmailByRole(User user)
-        {
-            if (string.IsNullOrEmpty(user.Email) || !user.Email.Contains("@"))
-                throw new Exception("Invalid email");
+//        // VALIDIM EMAIL
+//        private void ValidateEmailByRole(User user)
+//        {
+//            if (string.IsNullOrEmpty(user.Email) || !user.Email.Contains("@"))
+//                throw new Exception("Invalid email");
 
-            var email = user.Email.ToLower();
+//            var email = user.Email.ToLower();
 
-            if (user.Role == Role.Student)
-            {
-                if (!email.EndsWith("@edu.zealand.dk"))
-                    throw new Exception("Student must have edu email");
-            }
+//            if (user.Role == Role.Student)
+//            {
+//                if (!email.EndsWith("@edu.zealand.dk"))
+//                    throw new Exception("Student must have edu email");
+//            }
 
-            if (user.Role == Role.Teacher)
-            {
-                if (!email.EndsWith("@zealand.dk") || email.Contains("@edu."))
-                    throw new Exception("Teacher must have @zealand.dk email (not edu)");
-            }
+//            if (user.Role == Role.Teacher)
+//            {
+//                if (!email.EndsWith("@zealand.dk") || email.Contains("@edu."))
+//                    throw new Exception("Teacher must have @zealand.dk email");
+//            }
+//        }
 
-           
-        }
+      
+//        public User GetUserById(int id)
+//        {
+//            return _userRegister.FindById(id);
+//        }
 
-
-        // GET USER BY ID
-        public User GetUserById(int id)
-        {
-            return _userRegister.FindById(id);
-        }
+//        public List<User> GetAllUsers()
+//        {
+//            return _userRegister.FindAll();
+//        }
 
 
-        // GET ALL USERS
-        public List<User> GetAllUsers()
-        {
-            return _userRegister.FindAll();
-        }
+//        // UPDATE
+//        public User UpdateUser(User user)
+//        {
+//            return _userRegister.Update(user);
+//        }
 
-        public List<User> GetUsersByRole(Role role)
-        {
-            return _userRegister.FindAll()
-                .Where(u => u.Role == role)
-                .ToList();
-        }
+//        // DELETE
+//        public void DeleteUser(int id)
+//        {
+//            _userRegister.Delete(id);
+//        }
 
-        // DELETE USER
-        public void DeleteUser(int id)
-        {
-            _userRegister.Delete(id);
-        }
-    }
-}
+
+//        public List<User> GetUsersByRole(Role role)
+//        {
+//            return _userRegister.FindAll()
+//                .Where(u => u.Role == role)
+//                .ToList();
+//        }
+//    }
+//}
